@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "cypherWorkbenchVersion": "1.4.0",
+    "title": "New Model",
+    "dateCreated": "1688996117857",
+    "dateUpdated": "1689080543783",
+    "description": "",
+    "notes": "",
+    "isInstanceModel": false,
+    "tags": [],
+    "customers": [],
+    "owners": [
+      {
+        "email": "jason.booth@neo4j.com",
+        "__typename": "User"
+      }
+    ],
+    "viewSettings": {
+      "parentContainerViewSettings": {
+        "rightDrawerOpen": false,
+        "rightDrawerOpenWidth": "800px",
+        "destinationTabIndex": 0
+      },
+      "canvasViewSettings": {
+        "currentPan": {
+          "x": 65,
+          "y": 51
+        },
+        "currentOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "scaleFactor": 1
+      }
+    }
+  },
+  "dataModel": {
+    "nodeLabels": {
+      "Node0": {
+        "classType": "NodeLabel",
+        "label": "Movie",
+        "fromDataSources": [],
+        "key": "Node0",
+        "indexes": [],
+        "properties": {
+          "Prop1": {
+            "key": "Prop1",
+            "name": "movieId",
+            "datatype": "Integer",
+            "referenceData": "movies_metadata.id|ratings.movieId",
+            "description": null,
+            "fromDataSources": [],
+            "isPartOfKey": true,
+            "isArray": false,
+            "isIndexed": true,
+            "mustExist": true,
+            "hasUniqueConstraint": true
+          },
+          "Prop8": {
+            "key": "Prop8",
+            "name": "title",
+            "datatype": "String",
+            "referenceData": "movies_metadata.original_title",
+            "description": "movies_metadata.csv",
+            "fromDataSources": [],
+            "isPartOfKey": false,
+            "isArray": false,
+            "isIndexed": false,
+            "mustExist": false,
+            "hasUniqueConstraint": false
+          }
+        },
+        "secondaryNodeLabelKeys": [],
+        "isOnlySecondaryNodeLabel": false,
+        "description": "movie:movies_metadata",
+        "referenceData": "{\"secondaryNodeLabelKeys\":[],\"isOnlySecondaryNodeLabel\":false}",
+        "display": {
+          "color": "white",
+          "stroke": "black",
+          "strokeWidth": 4,
+          "x": 800,
+          "y": 160,
+          "radius": 40,
+          "size": "md",
+          "width": 80,
+          "height": 80,
+          "fontSize": 14,
+          "fontColor": "black",
+          "textLocation": "middle",
+          "isLocked": false,
+          "glyphs": []
+        }
+      },
+      "Node4": {
+        "classType": "NodeLabel",
+        "label": "User",
+        "fromDataSources": [],
+        "key": "Node4",
+        "indexes": [],
+        "properties": {
+          "Prop7": {
+            "key": "Prop7",
+            "name": "userId",
+            "datatype": "Integer",
+            "referenceData": "ratings.userId",
+            "description": "ratings.csv",
+            "fromDataSources": [],
+            "isPartOfKey": true,
+            "isArray": false,
+            "isIndexed": true,
+            "mustExist": true,
+            "hasUniqueConstraint": true
+          }
+        },
+        "secondaryNodeLabelKeys": [],
+        "isOnlySecondaryNodeLabel": false,
+        "description": "user:ratings",
+        "referenceData": "{\"secondaryNodeLabelKeys\":[],\"isOnlySecondaryNodeLabel\":false}",
+        "display": {
+          "color": "white",
+          "stroke": "black",
+          "strokeWidth": 4,
+          "x": 360,
+          "y": 160,
+          "radius": 40,
+          "size": "md",
+          "width": 80,
+          "height": 80,
+          "fontSize": 14,
+          "fontColor": "black",
+          "textLocation": "middle",
+          "isLocked": false,
+          "glyphs": []
+        }
+      }
+    },
+    "relationshipTypes": {
+      "Rel6": {
+        "classType": "RelationshipType",
+        "key": "Rel6",
+        "type": "MAKES_RATING",
+        "startNodeLabelKey": "Node4",
+        "endNodeLabelKey": "Node0",
+        "properties": {
+          "Prop6": {
+            "key": "Prop6",
+            "name": "rating",
+            "datatype": "Float",
+            "referenceData": "ratings.rating",
+            "description": null,
+            "fromDataSources": [],
+            "isPartOfKey": false,
+            "isArray": false,
+            "isIndexed": false,
+            "mustExist": false,
+            "hasUniqueConstraint": false
+          }
+        },
+        "referenceData": {},
+        "description": "user_movie:ratings",
+        "outMinCardinality": "0",
+        "outMaxCardinality": "many",
+        "inMinCardinality": "0",
+        "inMaxCardinality": "many",
+        "display": {
+          "color": "black",
+          "fontSize": 14,
+          "strokeWidth": 3,
+          "offset": 0,
+          "glyph": null
+        }
+      }
+    }
+  }
+}

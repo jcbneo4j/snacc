@@ -1,0 +1,28 @@
+networks:
+  neo:
+
+services:
+  neodb:
+    hostname: neodb
+    image: neo4j:5.9-enterprise
+    env_file:
+      - neo/base_v5.env
+    networks:
+      - neo
+    ports:
+      - 7673:7473
+      - 7774:7474
+      - 7087:7687
+    volumes:
+      - $PWD/neo/data:/data
+      - $PWD/neo/logs:/logs
+
+  jspark:
+    hostname: jspark
+    image: jupyter/pyspark-notebook
+    networks:
+      - neo
+    ports:
+      - 8888:8888
+    volumes:
+      - $PWD/spark:/home/jovyan/work

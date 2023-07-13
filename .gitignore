@@ -1,0 +1,5 @@
+neo/data/
+neo/logs
+spark/.ipynb_checkpoints/
+spark/data/.ipynb_checkpoints/
+spark/model/.ipynb_checkpoints/
