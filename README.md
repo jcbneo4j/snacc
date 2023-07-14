@@ -20,7 +20,7 @@ The project runs on docker compose so having docker/docker compose is necessary 
 
 The data model created as an exmaple is based on data at a Kaggle movie-based data [project](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv). The overall concept is to ingest user data and relate it to movies by a user's rating. This is a simple example of a data model and could certainly be evolved and interated on easily with the tool generating the needed updated code to reingest.
 
-The datamodel output from is located in the project at [spark/data/model/movies_datamodel.json](spark/data/model/movies_datamodel.json). Along with that, the supporting data used for ingest is located at [spark/data/csv/](spark/data/model/csv/) and included two CSV files: movies_metadata.csv and ratings.csv.
+The datamodel output from is located in the project at [spark/data/model/movies_datamodel.json](spark/data/model/movies_datamodel.json). Along with that, the supporting data used for ingest is located at [spark/data/csv/](spark/data/csv/) and included two CSV files: movies_metadata.csv and ratings.csv.
 
 The overall data mode is shown in the first image below. In the second image, we see the more detailed view of the Movies node. The data model is designed as usual; however, in the case of the tool, we've added a couple of other pieces of metadata to assist the tool in mapping the data. Namely, in the top description field "movie:movies_metadata" has been added - this is basically stating that I'm mapping the Movie node (added as 'movie' in lower-case) to the movies_metadata csv). 
 
