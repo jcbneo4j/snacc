@@ -17,3 +17,9 @@ The project runs on docker compose so having docker/docker compose is necessary 
 # Steps to follow
 
 ## Data Model
+
+
+
+![image](docs/images/datamodel1.jpg)
+
+![image](docs/images/datamodel2.jpg)
