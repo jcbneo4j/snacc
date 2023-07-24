@@ -22,13 +22,13 @@ config = {
     "user":"neo4j",
     "password":"password123",
     "url":"bolt://neodb:7687",
-    "database":"autoneo",
+    "database":"snacc",
     "batch_size":5000
 }
 
 spark = SparkSession \\
     .builder \\
-    .appName("autoneo") \\
+    .appName("snacc") \\
     .config("spark.jars", "./lib/neo4j-connector-apache-spark_2.12-4.1.2_for_spark_3.jar") \\
     .getOrCreate()
 
@@ -53,17 +53,17 @@ def create_database(tx, dbname):
 driver = get_driver()
 with driver.session(database="system") as session:
     try:
-      session.execute_write(create_database, "autoneo")
+      session.execute_write(create_database, "snacc")
       time.sleep(5)
     except Exception as e:
       print("Database already exists...")
 
-with driver.session(database="autoneo") as session:
+with driver.session(database="snacc") as session:
     {create_node_key_constraints()}
 
 driver.close()
 
-print("database 'autoneo' created and constraints set")
+print("database 'snacc' created and constraints set")
 '''
   return create_db
   
@@ -161,7 +161,7 @@ def create_notebook():
   cells.append(nbf.v4.new_code_cell(create_relationships_code_block()))
 
   notebook["cells"] = cells
-  with open("autoneo.ipynb", "w") as ipynb_file:
+  with open("snacc.ipynb", "w") as ipynb_file:
     nbf.write(notebook, ipynb_file)
     
 def get_property_reference(value, type):
@@ -267,6 +267,6 @@ create_notebook()
 
 print("\n")
 print("***************************************************")
-print("The autoneo notebook is created and ready to use...")
+print("The snacc notebook is created and ready to use...")
 print("***************************************************")
 print("\n")
